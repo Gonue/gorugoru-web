@@ -1,5 +1,5 @@
-/** 법무 검토 전까지 true — 초안 배너와 미확정 항목의 ※ 표시가 켜진다. */
-export const DRAFT = true;
+/** true 로 두면 초안 배너와 미확정 항목의 ※ 표시가 켜진다. */
+export const DRAFT = false;
 
 export const SITE_DOMAIN = "gorugoru.app";
 
