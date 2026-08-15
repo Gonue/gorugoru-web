@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { LEGAL_APPS } from "@/lib/apps";
 import { COMPANY, SITE } from "@/lib/company";
 
 export function BrandHeader() {
@@ -46,16 +45,6 @@ export function BrandFooter() {
           <section>
             <h2>정책</h2>
             <ul>
-              {LEGAL_APPS.map((app) => (
-                <li key={app.slug}>
-                  {app.name}{" "}
-                  <Link href={`/legal/privacy/${app.slug}`}>
-                    개인정보처리방침
-                  </Link>
-                  {" · "}
-                  <Link href={`/legal/terms/${app.slug}`}>이용약관</Link>
-                </li>
-              ))}
               <li>
                 <Link href="/legal">정책 문서 전체 보기</Link>
               </li>
