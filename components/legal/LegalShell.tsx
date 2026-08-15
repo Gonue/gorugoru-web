@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CompanyFacts } from "@/components/CompanyFacts";
 import { Mascot } from "@/components/Mascot";
-import { LEGAL_APPS, type GoruApp } from "@/lib/apps";
+import type { GoruApp } from "@/lib/apps";
 import { COMPANY, DRAFT } from "@/lib/company";
 import { DOC_TITLE, formatEffectiveDate, type DocKind } from "@/lib/legal";
 
@@ -88,16 +88,18 @@ export function LegalShell({
         <div className="shell">
           <CompanyFacts includeContact />
           <p className="legal-footer__links">
-            {LEGAL_APPS.map((a) => (
-              <Link key={a.slug} href={`/legal/privacy/${a.slug}`}>
-                {a.name} 개인정보처리방침
-              </Link>
-            ))}
-            {LEGAL_APPS.map((a) => (
-              <Link key={a.slug} href={`/legal/terms/${a.slug}`}>
-                {a.name} 이용약관
-              </Link>
-            ))}
+            {app ? (
+              <>
+                <Link href={`/legal/privacy/${app.slug}`}>
+                  {app.name} 개인정보처리방침
+                </Link>
+                <Link href={`/legal/terms/${app.slug}`}>
+                  {app.name} 이용약관
+                </Link>
+              </>
+            ) : (
+              <Link href="/legal">정책 문서 전체 보기</Link>
+            )}
           </p>
         </div>
       </footer>
