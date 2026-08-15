@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AppTokens } from "@/components/AppTokens";
 import { COMPANY, SITE } from "@/lib/company";
 import "./styles/tokens.css";
@@ -55,7 +57,11 @@ export default function RootLayout({
         />
         <AppTokens />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
