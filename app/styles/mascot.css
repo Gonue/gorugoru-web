@@ -1,0 +1,30 @@
+/* 도형은 Mascot.tsx 에, 색은 여기에. */
+
+.mascot .m-fill {
+  fill: currentColor;
+}
+
+/* 뒤로 물러나는 요소 — 날개·귀·꼬리 */
+.mascot .m-back {
+  opacity: 0.5;
+}
+
+.mascot .m-ink {
+  fill: var(--ink);
+}
+
+.mascot .m-paper {
+  fill: var(--paper);
+}
+
+.mascot .m-edge {
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+
+.mascot .m-line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}

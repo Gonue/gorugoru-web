@@ -1,0 +1,44 @@
+/* 앱별 `[data-app]` 규칙은 여기 없다 — lib/apps.ts 에서 생성된다. */
+
+:root {
+  /* 브랜드 고정값 */
+  --ink: #141414;
+  --ink-mute: #5c5c5c;
+  --ink-faint: #8a8a8a;
+  --paper: #ffffff;
+  --rule: rgba(20, 20, 20, 0.4);
+  --hairline: rgba(20, 20, 20, 0.12);
+
+  /* 앱이 덮어쓰는 값 */
+  --bg: #ededf2;
+  --accent: #141414;
+
+  /* 폰트 패밀리 이름은 이 두 줄에만 등장한다 */
+  --font-round: "Jua";
+  --font-sans: "Pretendard Variable", "Pretendard";
+
+  /* 라운드 → var(--font-sans) 로 내리면 사이트 톤이 연령 중립으로 바뀐다 (README 참고) */
+  --font-display: var(--font-round), var(--font-sans), system-ui, sans-serif;
+  --font-body: var(--font-sans), system-ui, -apple-system, "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+
+  --display-size: clamp(3.4rem, 15vw, 10rem);
+  /* 한글은 획 간격이 촘촘해 4~5% 를 넘기면 뭉갠다 */
+  --display-stroke: calc(var(--display-size) * 0.045);
+
+  --text-body: 1.0625rem;
+  --text-body-lg: 1.125rem;
+  --leading-prose: 1.8;
+
+  /* 모션 — 호버 모션 1종으로 통일 */
+  --dur: 260ms;
+  --ease: cubic-bezier(0.22, 0.68, 0.24, 1);
+
+  /* 레이아웃 */
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --shell: 1240px;
+  --prose: 68ch;
+
+  /* 노이즈 오버레이 */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}

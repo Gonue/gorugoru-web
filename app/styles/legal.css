@@ -1,0 +1,394 @@
+/* 정책 페이지. 같은 토큰, 다른 밀도 — 파스텔은 헤더 스트립 안에만. */
+
+.legal-top {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.legal-top__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.7rem;
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+}
+
+.legal-top__logo {
+  letter-spacing: 0.02em;
+}
+
+.legal-top__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.legal-top__nav a {
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 3px;
+}
+
+/* 헤더 스트립 — 컬러가 허용되는 유일한 구역 */
+.legal-strip {
+  background: var(--bg);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.legal-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise);
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.legal-strip__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+/* 앱 이름이 회사 이름보다 크다 */
+.legal-strip__app {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.legal-strip__doc {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 3.4vw, 1.6rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.legal-strip__dates {
+  margin-top: 0.9rem;
+  font-size: 0.8125rem;
+  color: var(--ink-mute);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+}
+
+.legal-strip__mascot {
+  width: clamp(56px, 13vw, 92px);
+  color: var(--accent);
+}
+
+.legal-strip__mascot svg {
+  width: 100%;
+  height: auto;
+}
+
+/* 초안 배너 */
+.draft-banner {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.draft-banner__inner {
+  padding-block: 0.7rem;
+}
+
+.draft-banner strong {
+  font-weight: 700;
+}
+
+/* 본문 */
+.prose {
+  background: var(--paper);
+  padding-block: clamp(2.25rem, 6vw, 3.5rem) clamp(3rem, 8vw, 5rem);
+}
+
+.prose__inner {
+  max-width: var(--prose);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-prose);
+}
+
+.prose__intro {
+  color: var(--ink);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.prose__intro p + p {
+  margin-top: 0.8rem;
+}
+
+.prose h2 {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin-top: 2.75rem;
+  margin-bottom: 0.85rem;
+  scroll-margin-top: 1rem;
+}
+
+.prose h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p + p,
+.prose p + ul,
+.prose ul + p,
+.prose p + ol,
+.prose ol + p {
+  margin-top: 0.85rem;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.35rem;
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+.prose__note {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--ink-mute);
+}
+
+/* 표 — 좁은 화면에서는 가로 스크롤 */
+.legal-table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-top: 1px solid var(--ink);
+}
+
+.legal-table {
+  width: 100%;
+  min-width: 520px;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 0.9rem 0.7rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.legal-table th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.legal-table thead th {
+  font-size: 0.8125rem;
+  color: var(--ink-mute);
+  padding-block: 0.5rem;
+}
+
+.legal-table td:last-child,
+.legal-table th:last-child {
+  padding-right: 0;
+}
+
+.unconfirmed {
+  color: var(--ink-faint);
+  font-size: 0.8125rem;
+  margin-left: 0.25rem;
+  white-space: nowrap;
+}
+
+/* 미결정 항목 */
+.pending {
+  margin-top: 1rem;
+  padding: 0.9rem 1.05rem;
+  border: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.pending strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* 푸터 */
+.legal-footer {
+  border-top: 1px solid var(--ink);
+  padding-block: 1.5rem 3rem;
+  font-size: 0.875rem;
+  color: var(--ink-mute);
+}
+
+.legal-footer dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.35rem 1rem;
+  max-width: var(--prose);
+}
+
+.legal-footer dt {
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.legal-footer__links {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  font-size: 0.8125rem;
+}
+
+.legal-footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--hairline);
+}
+
+/* 문서 목록 */
+.doc-list {
+  border-top: 1px solid var(--ink);
+  max-width: var(--prose);
+}
+
+.doc-list__row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.doc-list__mascot {
+  width: 30px;
+  color: var(--accent);
+}
+
+.doc-list__mascot svg {
+  width: 100%;
+  height: auto;
+}
+
+.doc-list__links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.doc-list__links a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+}
+
+.doc-list__name {
+  font-weight: 700;
+}
+
+.doc-list__name small {
+  font-weight: 400;
+  color: var(--ink-faint);
+  margin-left: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+/* 인쇄 — 분쟁 시 이 페이지를 인쇄해 제출하는 경우가 있다. */
+@media print {
+  .legal-top__nav,
+  .legal-footer__links,
+  .skip {
+    display: none;
+  }
+
+  .legal-strip {
+    background: transparent;
+    border-bottom: 1px solid #000;
+  }
+
+  .legal-strip::after {
+    display: none;
+  }
+
+  .draft-banner {
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
+  }
+
+  .prose,
+  .legal-strip__inner,
+  .legal-top__inner {
+    padding-block: 0.5rem;
+  }
+
+  .prose__inner {
+    max-width: none;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  .prose h2 {
+    margin-top: 1.2rem;
+    break-after: avoid;
+  }
+
+  .legal-table-wrap {
+    overflow: visible;
+  }
+
+  .legal-table {
+    min-width: 0;
+    font-size: 9.5pt;
+  }
+
+  .legal-table tr,
+  .pending {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .shell {
+    padding-inline: 0;
+  }
+}
