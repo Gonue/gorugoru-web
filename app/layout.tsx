@@ -28,6 +28,17 @@ export const metadata: Metadata = {
   },
   /* og:image 는 app/opengraph-image.jpg 가 붙인다. 카드 종류만 지정하면 된다. */
   twitter: { card: "summary_large_image" },
+  /*
+   * 파비콘은 app/favicon.ico 규약을 쓰지 않고 public/ + 명시 선언으로 간다.
+   * 규약을 쓰면 href 에 배포마다 달라지는 캐시 버스팅 쿼리가 붙는데,
+   * 구글은 "파비콘 URL 은 고정이어야 하고 자주 바꾸면 안 된다"고 요구한다.
+   * 매 배포마다 URL 이 바뀌면 검색결과 파비콘이 자리를 못 잡는다.
+   * https://developers.google.com/search/docs/appearance/favicon-in-search
+   */
+  icons: {
+    icon: { url: "/favicon.ico", sizes: "any" },
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
+  },
   // 심사 봇이 읽어야 하므로 색인을 막지 않는다
   robots: { index: true, follow: true },
 };
