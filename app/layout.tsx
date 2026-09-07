@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AppTokens } from "@/components/AppTokens";
-import { COMPANY, SITE } from "@/lib/company";
+import { ADSENSE_CLIENT, COMPANY, SITE } from "@/lib/company";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/mascot.css";
@@ -67,6 +67,16 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
         />
         <AppTokens />
+        {/*
+          애드센스 로더. 소유권 확인·심사용이다 — 구글이 루트 도메인 <head> 에서 이 태그를
+          찾는다. 광고 단위가 없으므로 이 사이트에 광고가 뜨지는 않는다. async 라 렌더를
+          막지 않는다.
+        */}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+        />
       </head>
       <body>
         {children}
