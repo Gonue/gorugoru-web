@@ -27,6 +27,22 @@ export const COMPANY = {
   supportEmail: `support@${SITE_DOMAIN}`,
 } as const;
 
+/**
+ * 애드센스 게시자 ID. 실제 광고는 unse.gorugoru.app 에서만 나가지만, 애드센스는
+ * 사이트 소유권 확인과 심사를 루트 도메인 기준으로 하므로 랜딩에도 로더 스니펫과
+ * ads.txt 가 있어야 한다. 이 사이트에는 광고 단위를 두지 않는다.
+ */
+export const ADSENSE_CLIENT = "ca-pub-5133545115355844";
+
+/** 같은 도메인 아래 다른 서비스. 심사 크롤러가 루트에서 출발해도 찾을 수 있게 푸터에 건다. */
+export const SERVICES = [
+  {
+    name: "고루고루 운세",
+    href: "https://unse.gorugoru.app",
+    description: "사주·오늘의 운세·인도 점성술 계산기",
+  },
+] as const;
+
 export const SITE = {
   /** 정식 주소 — 사이트맵·canonical 용 */
   url: `https://${SITE_DOMAIN}`,

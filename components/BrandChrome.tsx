@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { COMPANY, SITE } from "@/lib/company";
+import { COMPANY, SERVICES, SITE } from "@/lib/company";
 
 export function BrandHeader() {
   return (
@@ -51,6 +51,16 @@ export function BrandFooter() {
             </ul>
           </section>
 
+          <section>
+            <h2>서비스</h2>
+            <ul>
+              {SERVICES.map((s) => (
+                <li key={s.href}>
+                  <a href={s.href}>{s.name}</a> · {s.description}
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
 
         <div className="brand-footer__base">
