@@ -1,7 +1,17 @@
 /** true 로 두면 초안 배너와 미확정 항목의 ※ 표시가 켜진다. */
 export const DRAFT = false;
 
-export const SITE_DOMAIN = "gorugoru.app";
+/**
+ * 랜딩이 서비스되는 도메인. 루트(gorugoru.app)는 고루고루 운세가 쓰므로 여기는 서브도메인이다.
+ * canonical·사이트맵·약관 본문의 게시 주소가 이 값을 따른다.
+ */
+export const SITE_DOMAIN = "home.gorugoru.app";
+
+/**
+ * 메일 도메인. Cloudflare Email Routing 이 루트 도메인에 붙어 있어 사이트 도메인과 다르다.
+ * 여기를 SITE_DOMAIN 으로 되돌리면 privacy@home... 처럼 받을 수 없는 주소가 된다.
+ */
+export const MAIL_DOMAIN = "gorugoru.app";
 
 /** 프로덕션이 아니면 배포 자신의 주소를 쓴다 — 도메인 연결 전에도 og:image 를 받을 수 있다. */
 function resolveBaseUrl(): string {
@@ -23,22 +33,15 @@ export const COMPANY = {
   businessNumber: null as string | null,
   privacyOfficer: null as string | null,
 
-  privacyEmail: `privacy@${SITE_DOMAIN}`,
-  supportEmail: `support@${SITE_DOMAIN}`,
+  privacyEmail: `privacy@${MAIL_DOMAIN}`,
+  supportEmail: `support@${MAIL_DOMAIN}`,
 } as const;
-
-/**
- * 애드센스 게시자 ID. 실제 광고는 unse.gorugoru.app 에서만 나가지만, 애드센스는
- * 사이트 소유권 확인과 심사를 루트 도메인 기준으로 하므로 랜딩에도 로더 스니펫과
- * ads.txt 가 있어야 한다. 이 사이트에는 광고 단위를 두지 않는다.
- */
-export const ADSENSE_CLIENT = "ca-pub-5133545115355844";
 
 /** 같은 도메인 아래 다른 서비스. 심사 크롤러가 루트에서 출발해도 찾을 수 있게 푸터에 건다. */
 export const SERVICES = [
   {
     name: "고루고루 운세",
-    href: "https://unse.gorugoru.app",
+    href: "https://gorugoru.app",
     description: "사주·오늘의 운세·인도 점성술 계산기",
   },
 ] as const;
